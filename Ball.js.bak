@@ -60,6 +60,8 @@ class Ball {
         if (this.vx < 0) {
             this.vx = paddleForce * Math.abs(this.vx);
             // add other spin, etc.
+            let paddlePos = (this.y - paddle.y - paddle.l/2) / paddle.l * 2;
+            this.vy +=paddlePos * 1.5;
         }
         return SIDE.NONE;
     }
@@ -73,6 +75,8 @@ class Ball {
             this.vx = -paddleForce * Math.abs(this.vx);
             // add other spin, etc.
             // add sound?
+            let paddlePos = (this.y - paddle.y - paddle.l/2) / paddle.l * 2;
+            this.vy +=paddlePos * 1.5;
         }
         return SIDE.NONE;
     }

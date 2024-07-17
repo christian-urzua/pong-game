@@ -1,34 +1,54 @@
-const SIDE = {NONE: 0, LEFT: 1,RIGHT: 2}
-
+const SIDE = {NONE: 0, LEFT: 1, RIGHT: 2};
 
 class Paddle {
-    constructor(x,y,l,w,side,c,){
-        this.x = x
-        this.y=y
-        this.l=l
-        this.w=w
-        this.side=side
-        this.c=c
-        this.vy=0
-
-
+    constructor(x, y, l, w, side, c) {
+        this.x = x;
+        this.y = y;
+        this.l = l;
+        this.w = w;
+        this.side = side;
+        this.c = c;
+        this.vy = 0;
     }
 
-    draw(ctx){
-        ctx.fillStyle=this.c
-        ctx.strokeStyle = "black"
-        ctx.lineWidth = 2
-        ctx.fillRect(this.x,this.y,this.w,this.l)
-        ctx.strokeRect(this.x,this.y,this.w,this.l)
+    draw(ctx) {
+        ctx.fillStyle = this.c;
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+
+        ctx.fillRect(this.x, this.y, this.w, this.l); // NOT h
+        ctx.strokeRect(this.x, this.y, this.w, this.l);
     }
 
-    move(isCPU,ball){
-        if(isCPU){
+    moveL(isCPU, ball) {
+        if (isCPU) {
+            if(ball.y > paddleL.y + this.l - 50)
+                paddleL.vy = 1
+            if(ball.y < paddleL.y + this.l - 50)
+                paddleL.vy = -1
 
+
+            // ball.y <- where the ball is
+            // this.y <- where the paddle is
+            // this.l <- how long the paddle is
+
+            // control this.vy using ball
+            // don't set this.y! (cheating)
+            
         }
-
-        this.y += this.vy
-        if (this.y < 0) this.y = 0
-        if(this.y + this.l > boardHeight) this.y = boardHeight - this.l
+        this.y += this.vy;
+        if (this.y < 0) this.y = 0;
+        if (this.y + this.l > boardHeight) this.y = boardHeight - this.l;
+    }
+    moveR(isCPU, ball) {
+        if (isCPU) {
+            if(ball.y > paddleR.y + this.l - 50)
+                paddleR.vy = 1
+            if(ball.y < paddleR.y + this.l - 50)
+                paddleR.vy = -1
+        }
+        this.y += this.vy;
+        if (this.y < 0) this.y = 0;
+        if (this.y + this.l > boardHeight) this.y = boardHeight - this.l;
     }
 }

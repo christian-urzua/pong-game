@@ -1,0 +1,3 @@
+function checkPowerUp( ) {
+    // gameTick
+}
