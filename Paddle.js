@@ -21,10 +21,13 @@ class Paddle {
     }
 
     moveL(isCPU, ball) {
+        this.moveR(isCPU, ball);
+        return;
+        //moveR(isCPU, ball, paddleL);
         if (isCPU) {
-            if(ball.y > paddleL.y + this.l - 50)
+            if(ball.y > paddleL.y + this.l )
                 paddleL.vy = 1
-            if(ball.y < paddleL.y + this.l - 50)
+            if(ball.y < paddleL.y + this.l)
                 paddleL.vy = -1
 
 
@@ -42,10 +45,17 @@ class Paddle {
     }
     moveR(isCPU, ball) {
         if (isCPU) {
-            if(ball.y > paddleR.y + this.l - 50)
-                paddleR.vy = 1
-            if(ball.y < paddleR.y + this.l - 50)
-                paddleR.vy = -1
+            if(Math.abs(ball.y-this.y) > 100){
+                this.vy = 2;
+            }
+            else{
+                this.vy = 1;
+            }
+
+            if(ball.y > this.y + this.l )
+                this.vy *= 1;
+            if(ball.y < this.y + this.l )
+                this.vy *= -1;
         }
         this.y += this.vy;
         if (this.y < 0) this.y = 0;

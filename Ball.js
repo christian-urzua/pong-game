@@ -59,7 +59,10 @@ class Ball {
         if (this.y > paddle.y + paddle.l) return SIDE.NONE;
         if (this.vx < 0) {
             this.vx = paddleForce * Math.abs(this.vx);
+            this.vy += paddle.vy / 2;
             // add other spin, etc.
+            let audio = new Audio('thwack-wobble-96509.mp3');
+            audio.play();
         }
         return SIDE.NONE;
     }
@@ -71,8 +74,12 @@ class Ball {
         if (this.y > paddle.y + paddle.l) return SIDE.NONE;
         if (this.vx > 0) {
             this.vx = -paddleForce * Math.abs(this.vx);
+            this.vy += paddle.vy / 2;
+
             // add other spin, etc.
             // add sound?
+            let audio = new Audio('thwack-wobble-96509.mp3');
+            audio.play();
         }
         return SIDE.NONE;
     }

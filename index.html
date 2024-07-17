@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="pong.css">
 </head>
 <body>
-    <h1>MY PONG GAME</h1>
+    <h1>Wizard Battle</h1>
     <h3>By Christian, Herman, Bennett</h3>
-    <canvas id="gameboard" width="500" height="500"></canvas>
-    <div id="scoreboard">0 : 0</div>
-    <button id="reset" onclick="resetGame()">RESET</button>
+   <span> <img src="./images.png" style="width: 300px; height: 600px;"></span> <canvas id="gameboard" width="500" height="500"></canvas><span><img src="./celestial-blue-wizard-61504sizes.png"style="width: 300px; height: 600px;"></span>
+   <br> 
+   <div id="scoreboard">0 : 0</div>
+    <button id="play" onclick="resetGame()">Play</button> 
+    <span><button id="reset" onclick="resetGame()">Reset</button></span>
     <br />
     <input type="checkbox" id="cpucheckL">
     <label>CPU Play L</label>
@@ -20,11 +22,24 @@
     <input type="checkbox" id="cpucheckR">
     <label>CPU Play R</label>
 <br>
+<img id="player-1-wins" src="./player1png.png" style="position: absolute;
+top: 0;
+left: 0;
+visibility: hidden;
+width: 100vw;
+height: 100vh;">
+<img id="player-2-wins" src="./player2png.png" style="position: absolute;
+top: 0;
+left: 0;
+visibility: hidden;
+width: 100vw;
+height: 100vh;">
 
     <script src="Ball.js"></script>
     <script src="Paddle.js"></script>
     <script src="pong.js"></script>
     <script src="controls.js"></script>
     <script src="./powerup.js"></script>
+    <script src="./Mha.js"></script>
 </body>
 </html>
