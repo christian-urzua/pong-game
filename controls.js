@@ -4,12 +4,16 @@ function keyDown(event) {
     // console.log(`KEYDOWN: ${key}`);
 
     switch (key) {
+        case "Space":
+            activatePowerUp();
         case "KeyW":
             paddleL.vy = -paddleVelocity;
             break;
         case "KeyS":
             paddleL.vy = paddleVelocity;
             break;
+        
+
         case "ArrowUp":
             paddleR.vy = -paddleVelocity;
             break;
@@ -19,6 +23,7 @@ function keyDown(event) {
         case "End":
             resetGame();
             break;
+            
     }
 }
 
