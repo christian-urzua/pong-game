@@ -1,5 +1,7 @@
 const SIDE = {NONE: 0, LEFT: 1, RIGHT: 2};
 
+let MAXSPEED = 5;
+
 class Paddle {
     constructor(x, y, l, w, side, c) {
         this.x = x;
@@ -45,17 +47,33 @@ class Paddle {
     }
     moveR(isCPU, ball) {
         if (isCPU) {
-            if(Math.abs(ball.y-this.y) > 100){
+                
+            this.vy = MAXSPEED;
+            
+            if(Math.abs(ball.y-this.y) < 20){
                 this.vy = 2;
             }
-            else{
-                this.vy = 1;
+            /*
+
+            if(Math.abs(ball.y-this.y) > 100 || Math.abs(ball.y-this.y) > 100){ //if ball is far away move faster
+                this.vy = 10;
             }
+            else if(Math.abs(ball.vy) > 2){
+                this.vy = Math.min( Math.abs(ball.vy), 10);
+            }
+            else if(Math.abs(ball.y-this.y) > 70){
+                this.vy = 3;
+            }
+            else{
+                this.vy = 3;
+            }
+            */
 
             if(ball.y > this.y + this.l )
                 this.vy *= 1;
             if(ball.y < this.y + this.l )
                 this.vy *= -1;
+            
         }
         this.y += this.vy;
         if (this.y < 0) this.y = 0;

@@ -14,7 +14,7 @@ let boardHeight = 500;
 let paddleWidth = 25;
 let paddleLength = 100;
 let ballRadius = 12.5;
-let paddleVelocity = 5;
+let paddleVelocity = MAXSPEED;
 let paddleForce = 1.1; // 110% of speed before
 
 let ball;
@@ -54,7 +54,7 @@ function resetGame() {
 }
 
 function resetBall() {
-    ball = new Ball(boardWidth/2, boardHeight/2, 7, -7, ballRadius, "orange");
+    ball = new Ball(boardWidth/2, boardHeight/2, 3, -3, ballRadius, "orange");
     //ball2 = new Ball(boardWidth/2, boardHeight/2, 1, -1, ballRadius, "yellow");
 }
 
